@@ -565,3 +565,5 @@ logoutButton.addEventListener("click", async () => {
 
 // Inicialização
 setAuthMode("login");
+
+// SLR
