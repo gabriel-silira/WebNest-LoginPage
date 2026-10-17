@@ -2,7 +2,7 @@
 
 Uma página de autenticação moderna, responsiva e com integração ao Supabase, desenvolvida para oferecer uma experiência simples e funcional de acesso e gerenciamento de contas.
 
-Versão 1.0
+Versão 1.1
 
 🔗 **Acesse o projeto:** [WebNest LoginPage](https://gabriel-silira.github.io/WebNest-LoginPage/)
 

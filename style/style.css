@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --bg-dark: #070b18;
-  --primary: #168cff;
-  --primary-light: #00d4ff;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --input-bg: rgba(5, 12, 30, 0.55);
-  --border: rgba(148, 163, 184, 0.2);
+  --surface: #1d405a;
+  --canvas: #102c43;
+  --primary: #0d7dba;
+  --primary-hover: #0a6fa8;
+  --primary-soft: #2b4c61;
+  --text: #f2f7fa;
+  --text-muted: #b1c2cc;
+  --input-bg: #17364e;
+  --border: #4b718c;
 }
 
 * {
@@ -20,18 +22,13 @@ body {
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(
-      ellipse at 15% 15%,
-      rgba(0, 212, 255, 0.2),
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 85% 85%,
-      rgba(22, 140, 255, 0.2),
-      transparent 45%
-    ),
-    var(--bg-dark);
+  background: var(--canvas);
+  accent-color: var(--primary);
+}
+
+::selection {
+  color: #eff8fc;
+  background: #29668a;
 }
 
 /* Centralização */
@@ -49,34 +46,41 @@ body {
 .login-card {
   width: 100%;
   max-width: 420px;
-  min-height: 600px;
+  min-height: 560px;
   height: auto;
-  padding: 32px 38px;
+  padding: 36px 38px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  background: rgba(15, 25, 48, 0.58);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: var(--surface);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(5, 18, 28, 0.22);
+}
 
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 22px;
+.brand-lockup {
+  margin-bottom: 32px;
+  color: #19c8e8;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
 
-  box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+.brand-lockup span {
+  color: #ffffff;
 }
 
 /* Títulos */
 
 .login-card h1 {
-  font-size: 2.3rem;
-  font-weight: 800;
+  font-size: 2.1rem;
+  font-weight: 700;
   text-align: center;
-  letter-spacing: -1.2px;
-  margin-bottom: 30px;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
 }
 
 .login-card h1::after {
@@ -85,10 +89,8 @@ body {
   width: 42px;
   height: 4px;
   margin: 12px auto 0;
-
-  background: linear-gradient(90deg, var(--primary), var(--primary-light));
-
-  border-radius: 10px;
+  background: linear-gradient(90deg, #218cff, #19d2e8);
+  border-radius: 999px;
 }
 
 /* Formulários */
@@ -109,7 +111,7 @@ body {
 .form-group label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #dbeafe;
+  color: #d7e4eb;
 }
 
 /* Campos */
@@ -135,17 +137,17 @@ body {
 }
 
 .form-group input:hover {
-  border-color: rgba(96, 165, 250, 0.45);
+  border-color: #6a91a8;
 }
 
 .form-group input:focus {
-  background: rgba(5, 12, 30, 0.8);
+  background: #20394a;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(22, 140, 255, 0.13);
+  box-shadow: 0 0 0 3px rgba(43, 159, 215, 0.16);
 }
 
 .form-group input::placeholder {
-  color: #64748b;
+  color: #91a8b6;
 }
 
 /* Campo de senha e botão de visibilidade */
@@ -190,8 +192,8 @@ body {
 }
 
 #toggle-password:hover {
-  color: var(--primary-light);
-  background: rgba(22, 140, 255, 0.12);
+  color: var(--primary);
+  background: #29485b;
 }
 
 #toggle-password:focus-visible {
@@ -207,7 +209,7 @@ body {
   margin-bottom: 24px;
   padding: 5px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: #163249;
 }
 
 .auth-tab {
@@ -216,21 +218,22 @@ body {
   border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
-  color: #94a3b8;
+  color: #a7bbc7;
   font: inherit;
   font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .auth-tab:hover {
-  color: #ffffff;
+  color: #eef7fb;
 }
 
 .auth-tab.active {
-  color: #ffffff;
-  background: rgba(59, 130, 246, 0.18);
-  border-color: rgba(59, 130, 246, 0.35);
+  color: #f3f9fc;
+  background: var(--primary-soft);
+  border-color: #4b7690;
 }
 
 /* Mensagens */
@@ -240,7 +243,7 @@ body {
   font-size: 0.85rem;
   line-height: 1.5;
   margin-bottom: 12px;
-  color: #fca5a5;
+  color: #ffb4ad;
   overflow-wrap: anywhere;
 }
 
@@ -258,35 +261,34 @@ body {
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
 
-  background: linear-gradient(100deg, #1677f9, #079cf0);
+  background: linear-gradient(100deg, #0875d1, #087bb9);
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid transparent;
   border-radius: 10px;
 
   cursor: pointer;
-
-  box-shadow: 0 6px 20px rgba(22, 119, 249, 0.2);
+  box-shadow: 0 8px 22px rgba(5, 18, 28, 0.28);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .login-button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.12);
-  box-shadow: 0 10px 28px rgba(22, 119, 249, 0.32);
+  background: linear-gradient(100deg, #0a7cba, #087ac0);
+  box-shadow: 0 10px 26px rgba(5, 18, 28, 0.34);
 }
 
 .login-button:active {
-  transform: translateY(0);
+  background: #076ca5;
+  box-shadow: 0 5px 14px rgba(5, 18, 28, 0.24);
 }
 
 .login-button:focus-visible {
-  outline: 2px solid var(--primary-light);
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
 
@@ -307,7 +309,7 @@ body {
   font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--primary-light);
+  color: #19d2e8;
   text-align: center;
 
   background: transparent;
@@ -319,7 +321,7 @@ body {
 }
 
 .text-button:hover {
-  color: #ffffff;
+  color: #7be9f4;
 }
 
 .text-button:focus-visible {
@@ -361,12 +363,11 @@ body {
   align-items: center;
   justify-content: center;
 
-  color: #86efac;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(134, 239, 172, 0.25);
+  color: #9ee6b7;
+  background: #244a3c;
+  border: 1px solid #4d9070;
   border-radius: 50%;
 
-  box-shadow: 0 0 40px rgba(34, 197, 94, 0.08);
 }
 
 .login-card #welcome-view h1 {
@@ -383,7 +384,7 @@ body {
 
 .welcome-username {
   margin-top: 6px;
-  color: var(--primary-light);
+  color: var(--primary);
   font-size: 1.3rem;
   font-weight: 800;
   overflow-wrap: anywhere;
@@ -398,9 +399,9 @@ body {
   align-items: center;
   gap: 9px;
 
-  color: #86efac;
-  background: rgba(34, 197, 94, 0.08);
-  border: 1px solid rgba(134, 239, 172, 0.16);
+  color: #a9e8c0;
+  background: #203e34;
+  border: 1px solid #467b61;
   border-radius: 30px;
 
   font-size: 0.85rem;
@@ -411,12 +412,31 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+  background: #55c881;
 }
 
 #logout-button {
   margin-top: 4px;
+}
+
+/* Tablets */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .login-card {
+    max-width: 480px;
+    min-height: 620px;
+    padding: 44px 46px;
+  }
+
+  .brand-lockup {
+    margin-bottom: 36px;
+    font-size: 1.12rem;
+  }
+
+  .login-card h1 {
+    font-size: 2.3rem;
+    margin-bottom: 32px;
+  }
 }
 
 /* Celulares */
@@ -429,12 +449,28 @@ body {
   .login-card {
     min-height: 0;
     padding: 32px 24px;
-    border-radius: 18px;
+    border-radius: 16px;
+  }
+
+  .brand-lockup {
+    margin-bottom: 28px;
   }
 
   .login-card h1 {
     font-size: 2rem;
     margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 340px) {
+  .auth-tabs {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .auth-tab {
+    padding: 10px 4px;
+    font-size: 0.82rem;
   }
 }
 
